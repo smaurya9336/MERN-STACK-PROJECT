@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app= express();
 const port = 8080;
+const cors = require("cors");
 
 const userSchema = mongoose.Schema({
     firstname:{
@@ -27,6 +28,7 @@ const userSchema = mongoose.Schema({
 
 //  middleware
 app.use(express.json());
+app.use(cors());
 
 // Routes
 
