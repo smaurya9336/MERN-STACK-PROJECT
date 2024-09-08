@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 
 export default function ShowAll(){
-   const [data, setData] = useState([ ]);
+   const [data, setData] = useState([]);
     const getall = async () => {
         const response = await fetch("http://localhost:8080/");
         const result = await response.json();
@@ -14,11 +14,12 @@ export default function ShowAll(){
 
     useEffect(()=>{
         getall();
-    }, [])
+    }, []);
+
     return(
         <>
         <div className="row">
-            <div className="col-md-6 mx-auto my-3 bg-dark p-3 rounded-3 shadow-lg table-responsive">
+            <div className="col-md-9 mx-auto my-3 bg-dark p-3 rounded-3 shadow-lg table-responsive">
                 <table className="table table-dark text-light">
                     <thead>
                         <tr>
@@ -40,7 +41,7 @@ export default function ShowAll(){
                            <td>{ele.email}</td>
                            <td>{ele.salary}</td>
                            <td><Link to={`/view/${ele._id}`} className="btn btn-warning">View</Link></td>
-                           <td><Link className="btn btn-primary">Edit</Link></td>
+                           <td><Link to={`/edit/${ele._id}`} className="btn btn-primary">Edit</Link></td>
                            <td><button className="btn btn-danger">Delete</button></td>
                            </tr>
                     ))}

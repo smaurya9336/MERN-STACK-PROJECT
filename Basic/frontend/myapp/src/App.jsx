@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Registration from './components/Registration';
 import ShowAll from "./components/ShowAll";
 import View from "./components/View";
+import Edit from "./components/Edit";
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
    <Routes>
   <Route exact path="/" element={<Registration />} />
   <Route exact path="/showall" element={<ShowAll />} />
-  <Route exact path="/view:id" element={<View />} />
+  <Route exact path="/view/:id" element={<View />} />
+  <Route exact path="/edit/:id"  element={<Edit />} />
    </Routes>
    </BrowserRouter>
     {/* main content end */}
